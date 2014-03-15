@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>MetaFLow</title>
+    <title>DataMinder</title>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/normalize/3.0.0/normalize.min.css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.2.1/css/foundation.min.css" />
 
@@ -14,7 +14,10 @@
         text-align:center;
         margin-top:20px;
       }
-      p{text-align:left;}
+      p, ul, li{text-align:left;}
+      ul{list-style-type:none}
+      li{margin-bottom:20px;}
+      em{font-weight:bold;font-style:normal}
       h3{text-align:left;}
       #container img{
         width:100%;
@@ -57,20 +60,52 @@
         margin-top:10px;
         margin-bottom:50px;
       }
+      #pricing{
+        margin-top:30px;
+        width:800px;
+        margin-left:-100px;
+      }
     </style>
   </head>
   <body>
     <div id="container">
-      <h1> Dataminder </h1>
+      <h1> DataMinder </h1>
       <!--<a class="button large success" href="dev.html">Try Now!</a>-->
-      <p class="first">Do you want your enterprise data to look like this?</p>
+      <p class="first">Can your enterprise data do this?</p>
       
-      <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/a/anwright.co.uk/spreadsheet/tq?key=0Au9e7xPaH_5bdGtQUmNEY1RvUjZ4X2F0dEY3T3Nxb0E&transpose=0&headers=1&range=A1%3AF13&gid=0&pub=1","options":{"titleTextStyle":{"fontSize":16},"vAxes":[{"useFormatFromData":true,"title":"Left vertical axis title","minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null}],"booleanRole":"certainty","title":"Chart title","hAxis":{"useFormatFromData":true,"title":"Horizontal axis title","minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null},"width":600,"height":371},"state":{},"view":{"columns":[0,1,2,3,4,{"label":"region","properties":{"role":"annotation"},"sourceColumn":5}]},"isDefaultVisualization":false,"chartType":"MotionChart","chartName":"Chart1"} </script> 
+      <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/a/anwright.co.uk/spreadsheet/tq?key=0AlFeGUIpmKzxdEJMMUtZbXBBX2oxZ1UzT0szWDA3ZFE&transpose=0&headers=1&range=A1%3AD362&gid=1&pub=1","options":{"titleTextStyle":{"fontSize":16},"vAxes":[{"useFormatFromData":true,"title":"Left vertical axis title","minValue":null,"viewWindow":{"max":null,"min":null},"maxValue":null},{"useFormatFromData":true,"minValue":null,"viewWindow":{"max":null,"min":null},"maxValue":null}],"booleanRole":"certainty","title":"Chart title","height":344,"animation":{"duration":500},"width":600,"focusTarget":"series","hAxis":{"useFormatFromData":true,"title":"Horizontal axis title","minValue":null,"viewWindow":{"max":null,"min":null},"maxValue":null},"tooltip":{"trigger":"none"}},"state":{},"view":{},"isDefaultVisualization":false,"chartType":"MotionChart","chartName":"Chart1"} </script> 
+
+
+
+      <h3>Why you should care</h3>
+      <p>Your competitors are getting insight into their business data. Are you?</p>
+
+      <p>Making sense of Big Data can give your even bigger headaches. You want to spot trends and understand problems and opportunities in a quick and easy way.</p>
+
+      <p>We can help.</p>
+     
+      <h3>What we do</h3>
+      <p>DataMinder will shine a light on your data, providing you with deep insight and actionable information. You can find un-tapped customer segments, find out which of your business units are underperforming.</p>
+
+      <p>We'll also do the work of supercharging your business data with high quality information from government and private sources.</p>
+      
+      <p>As well as the great analytic depth, DataMinder will let you easily design dynamic visualisations that will make your board stand up and pay attention to what you have to say. You'll never go unarmed into a meeting again and will always be able to make data-driven decisions.</p>
+      
+      <h3>Key features</h3>
+      
+      <ul>
+        <li><em>Integration with Open Data</em> We augment your data with Open Data from local and central government, Housing price surveys, Land use statistics, Met Office, Traffic Data Statistics and NHS open data.</li>
+        <li><em>Outlier discovery</em> The simple data presentation format lets you discover outliers in your datasets who would otherwise be obscured if the data was studied in one dimension. You'll gain new insight into performance and effectiveness. Our advanced subscription plans provide supporting algorithms that can discover outliers automatically.</li>
+        <li><em>Clustering and segmentation</em> Dataminder makes it easy to discover new trends and patterns that are conventionally hard to detect. Unexploited customer segments can be discovered, and data automatically categorised. The addition of sophisticated data analysis algorithms can bring business insight straight into your inbox.</li>
+      </ul>
+
+      
+          
 
       <div id="signup" class="panel">
         <div class="presub">
-          <h3>Stay in touch!</h3>
-          <p>Submit your email to receive information and invites to our Alpha and Beta programmes. We'll keep you up to date with the latest development and yu'll get a discount upon launch.</p> 
+          <h3>Want to master your data?</h3>
+          <p>Submit your email to receive information and invites to our Alpha and Beta programmes. We'll keep you up to date with the latest development and you'll get a discount upon launch.</p> 
           <p>(Your email won't be used for anything else.)</p>
           <form>
             <label>Your email:</label> <input id="email" type="text" placeholder="Your email address"></input>
@@ -89,10 +124,11 @@
         <a href="mailto:partnerships@metricguru.com">Partnerships</a>
       </div>
       <div class="copynotice">
-        &copy; 2013 - 2014 Sigmaforge Ltd.
+        &copy; 2013 - 2014 Metricguru Ltd.
       </div>
     </div>
     
+
     <script src='//cdn.firebase.com/js/client/1.0.2/firebase.js'></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script> 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
@@ -125,7 +161,7 @@ var opts = {
     ev.preventDefault();
     $("<div>").attr('id', "overlay").appendTo($("#signup"));
     var spinner = new Spinner(opts).spin(document.getElementById("overlay"));
-    /*
+    
        leads.push({email:$("#email").val(), 'date':new Date().toString()}, function(error){
       if(error){
         console.error("Something went wrong when saving the email address!", err);
@@ -133,7 +169,7 @@ var opts = {
       $(".presub").hide();
       $(".postsub").show();
       $("#overlay").remove();
-    });*/
+    });
   });
 });
 </script>
