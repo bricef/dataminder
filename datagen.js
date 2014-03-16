@@ -1,105 +1,31 @@
-<!doctype html>
-<html>
+var Datagen = Datagen || {};
 
-  <head>
-    <title>DataMinder</title>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/normalize/3.0.0/normalize.min.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.2.1/css/foundation.min.css" />
 
-    <style>
-      #container{
-        max-width:600px;
-        margin-left:auto;
-        margin-right:auto;
-        text-align:center;
-        margin-top:20px;
-      }
-      p, ul, li{text-align:left;}
-      ul{list-style-type:none}
-      li{margin-bottom:20px;}
-      em{font-weight:bold;font-style:normal}
-      h3{text-align:left;}
-      #container img{
-        width:100%;
-        margin:1em;
-        margin-left:auto;
-        margin-right:auto;
-        display:block;
-      }
-      #signup{
-        position:relative;
-        margin-left:auto;
-        margin-right:auto;
-      }
-      .note{
-        font-size:95%;
-        margin-bottom:1em;
-      }
-      .copynotice{
-        font-size: 80%;
-        color:grey;
-        padding-bottom:3em;
-      }
-      label{
-        font-weight:bold;
-        margin:0.5em;
-      }
-      p.first{
-        text-align:center;
-        font-size:110%;
-      }
-      #overlay{
-        position:absolute;
-        top:0px;
-        left:0px;
-        width:100%;
-        height:100%;
-        background-color:rgba(0,0,0,0.3);
-      }
-      #chart_div{
-        margin-top:10px;
-      }
-      .spacer{
-        font-weight:bold;
-        color:#C20000;
-        margin-bottom:30px;
-      }
-      #pricing{
-        margin-top:30px;
-        width:800px;
-        margin-left:-100px;
-      }
-      #blackbar{ 
-        width:100%;
-        background-color:#1C1D1D;
-        padding-bottom:12px;
-      }
-      #blackbar img {
-        display:block;
-        margin-left:auto;
-        margin-right:auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="blackbar">
-    <img src="logo.png"></img>
-    </div>
-    <div id="container">
-      
-      <h3>Can your enterprise data do this?</h3>
-      
-      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load('visualization', '1', {'packages':['motionchart']});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Store');
-        data.addColumn('date', 'Date');
-        data.addColumn('number', 'Footfall');
-        data.addColumn('number', 'Conplaint Rate per 1000');
-        data.addRows([
+Datagen.daterange = []
+
+for(var year = 2010; year < 2014; year++ ){
+  for(var month = 1; month < 13; month++){
+    Datagen.daterange.push(new Date(year, month));
+  }
+}
+
+var jobs = _.range(1,11).map(function(i){
+  return "JOB:"+(i+1273).toString(16);
+}); 
+
+var dist = new NormalDistribution(50, 0);
+
+
+Datagen.rows = [];
+
+jobs.forEach(function(jobid){
+  Datagen.daterange.map(function(date){
+     Datagen.rows.push([jobid, date, dist.sample(), dist.sample()]);
+  });
+});
+
+
+Datagen._rows = [
 ["Sheffield", new Date ("1/1/2010"),200,15  ],
 ["Sheffield", new Date ("2/1/2010"),102,14  ],
 ["Sheffield", new Date ("3/1/2010"),80,16  ],
@@ -460,125 +386,5 @@
 ["Leeds", new Date ("10/1/2012"),540,46  ],
 ["Leeds", new Date ("11/1/2012"),1010,66  ],
 ["Leeds", new Date ("12/1/2012"),1025,82  ]
-        ]);
-         var options = {};
-        options['state'] = '{"yAxisOption":"3","dimensions":{"iconDimensions":["dim0"]},"xZoomedDataMin":18,"yZoomedDataMin":1,"xZoomedDataMax":2980,"yZoomedIn":false,"iconType":"BUBBLE","nonSelectedAlpha":0.4,"colorOption":"3","yLambda":1,"time":"2010","playDuration":40000,"xAxisOption":"2","showTrails":true,"orderedByY":false,"xLambda":1,"iconKeySettings":[],"duration":{"multiplier":1,"timeUnit":"D"},"xZoomedIn":false,"uniColorForNonSelected":false,"sizeOption":"_UNISIZE","orderedByX":false,"yZoomedDataMax":200}';
-        options['width'] = 600;
-        options['height'] = 400; 
-        chart = new google.visualization.MotionChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script> 
-<div id="chart_div" style="width: 600px; height: 400px;"></div>
-<p class="spacer" style="font-size:85%">Press play above.</p>
+];
 
-      <h3>Why you should care</h3>
-      <p>Your competitors are getting insight into their business data. Are you?</p>
-
-      <p>Making sense of Big Data can give your even bigger headaches. You want to spot trends and understand problems and opportunities in a quick and easy way.</p>
-
-      <p>We can help.</p>
-     
-      <h3>What we do</h3>
-      <p>DataMinder will shine a light on your data, providing you with deep insight and actionable information. You can find un-tapped customer segments, find out which of your business units are underperforming.</p>
-
-      <p>We'll also do the work of supercharging your business data with high quality information from government and private sources.</p>
-      
-      <p>As well as the great analytic depth, DataMinder will let you easily design dynamic visualisations that will make your board stand up and pay attention to what you have to say. You'll never go unarmed into a meeting again and will always be able to make data-driven decisions.</p>
-      
-      <h3>Key features</h3>
-      
-      <ul>
-        <li><em>Integration with Open Data</em> We augment your data with Open Data from local and central government, Housing price surveys, Land use statistics, Met Office, Traffic Data Statistics and NHS open data.</li>
-        <li><em>Outlier discovery</em> The simple data presentation format lets you discover outliers in your datasets who would otherwise be obscured if the data was studied in one dimension. You'll gain new insight into performance and effectiveness. Our advanced subscription plans provide supporting algorithms that can discover outliers automatically.</li>
-        <li><em>Clustering and segmentation</em> Dataminder makes it easy to discover new trends and patterns that are conventionally hard to detect. Unexploited customer segments can be discovered, and data automatically categorised. The addition of sophisticated data analysis algorithms can bring business insight straight into your inbox.</li>
-      </ul>
-
-      
-          
-
-      <div id="signup" class="panel">
-        <div class="presub">
-          <h3>Want to master your data?</h3>
-          <p>Submit your email to receive information and invites to our Alpha and Beta programmes. We'll keep you up to date with the latest development and you'll get a discount upon launch.</p> 
-          <p>(Your email won't be used for anything else.)</p>
-          <form>
-            <label>Your email:</label> <input id="email" type="text" placeholder="Your email address"></input>
-            <input id="submit-email" type="submit" class="button large success" value="Submit"></input>
-          </form>
-        </div>
-        <div class="postsub" style="display:none">
-          <h3>Thankyou for your interest</h3>
-          <p>We'll be in touch soon with our progress updates!</p>
-        </div>
-      </div>
-      <div class="note">
-        Contact us:
-        <a href="mailto:feedback@metricguru.com">Feedback</a> &middot;
-        <a href="mailto:press@metricguru.com">Press</a> &middot;
-        <a href="mailto:partnerships@metricguru.com">Partnerships</a>
-      </div>
-      <div class="copynotice">
-        &copy; 2013 - 2014 Metricguru Ltd.
-      </div>
-    </div>
-    
-
-    <script src='//cdn.firebase.com/js/client/1.0.2/firebase.js'></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script> 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="//fgnass.github.io/spin.js/spin.min.js"></script> 
-
-<script type="text/javascript">
-$(function(){
-var opts = {
-  lines: 13, // The number of lines to draw
-  length: 20, // The length of each line
-  width: 10, // The line thickness
-  radius: 30, // The radius of the inner circle
-  corners: 1, // Corner roundness (0..1)
-  rotate: 0, // The rotation offset
-  direction: 1, // 1: clockwise, -1: counterclockwise
-  color: '#000', // #rgb or #rrggbb or array of colors
-  speed: 1, // Rounds per second
-  trail: 60, // Afterglow percentage
-  shadow: false, // Whether to render a shadow
-  hwaccel: false, // Whether to use hardware acceleration
-  className: 'spinner', // The CSS class to assign to the spinner
-  zIndex: 2e9, // The z-index (defaults to 2000000000)
-  top: '150px', // Top position relative to parent in px
-  left: '300px' // Left position relative to parent in px
-};
-  var db = new Firebase('https://dataminder.firebaseio.com/');
-  var leads = db.child("leads");
-  $("#submit-email").click(function(ev){
-    ev.stopPropagation();
-    ev.preventDefault();
-    $("<div>").attr('id', "overlay").appendTo($("#signup"));
-    var spinner = new Spinner(opts).spin(document.getElementById("overlay"));
-    
-       leads.push({email:$("#email").val(), 'date':new Date().toString()}, function(error){
-      if(error){
-        console.error("Something went wrong when saving the email address!", err);
-      }
-      $(".presub").hide();
-      $(".postsub").show();
-      $("#overlay").remove();
-    });
-  });
-});
-</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-49011393-1', 'metricguru.com');
-    ga('send', 'pageview');
-
-</script>
-  
-</body>
-</html>
